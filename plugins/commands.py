@@ -67,7 +67,7 @@ async def start(client, message):
             return
         btn = [[ 
                 InlineKeyboardButton(
-                    "🎗 Rᴇǫᴜᴇꜱᴛ Tᴏ Jᴏɪɴ Cʜᴀɴɴᴇʟ 🎗", url=invite_link)
+                    "🎗 Request To Join Channel 🎗", url=invite_link)
         ]]
         if message.command[1] != "subscribe":
             try:
@@ -80,7 +80,7 @@ async def start(client, message):
                 btn.append([InlineKeyboardButton("㋡ Wʜʏ I'ᴍ Jᴏɪɴɪɴɢ", callback_data="whyjoin")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**--♦️ READ THIS INSTRUCTION ♦️--\n\n🗣 നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന 📢 REQUEST TO JOIN CHANNEL 📢 എന്നത് ക്ലിക്ക് ചെയ്ത് Request to Join channel എന്നത് ക്ലിക്ക് ചെയ്ത് 🔄 Try Again കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്😍\n\n🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To Join Our Official Channel First By Clicking 📢 REQUEST TO JOIN CHANNEL 📢 Button or the Link shown Below. After That, Click 🔄 Try Again 🔄 Button. I'll Send You That Movie File📂**",
+            text="**--♦️ READ THIS INSTRUCTION ♦️--\n\n🗣 നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന 📢 Request To Join Channel 📢 എന്നത് ക്ലിക്ക് ചെയ്ത് Request to Join channel എന്നത് ക്ലിക്ക് ചെയ്ത് 🔄 Try Again കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്😍\n\n🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To Join Our Official Channel First By Clicking 📢 Request To Join Channel 📢 Button or the Link shown Below. After That, Click 🔄 Try Again 🔄 Button. I'll Send You That Movie File📂**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
@@ -88,7 +88,7 @@ async def start(client, message):
 
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('തൊടരുത്', callback_data='start')
+            InlineKeyboardButton('𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -228,20 +228,32 @@ async def start(client, message):
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:
         try:
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except Exception as e:
             logger.exception(e)
-            f_caption=f_caption
+            f_caption = f_caption
+
     if f_caption is None:
-        f_caption = f"{files.file_name}"
-    await client.send_cached_media(
+        f_caption = files.file_name
+
+    xd = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❤️‍🔥 ᴊᴏɪɴ ᴛᴏ ᴄʜᴀɴɴᴇʟ ❤️‍🔥', url=(MAIN_CHANNEL)) ] ] ),
         protect_content=True if pre == 'filep' else False,
-        )
-                    
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/new_movies_group_2021")]])
+    )
+    if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
+        f_caption += "\n⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
+        inline_keyboard = [
+                [InlineKeyboardButton("🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸", url="https://t.me/sk_movies_Group")]
+            ]
+        reply_markup = InlineKeyboardMarkup(inline_keyboard)
+        await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
+        await asyncio.sleep(180)
+        await message.delete()
+        await xd.delete()
+
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
