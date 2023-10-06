@@ -5,6 +5,15 @@ class script(object):
     HELP_TXT = """<b>𝙷𝙴𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂.</b>"""
 
+    PEPE_TXT = """𝙷𝙴𝚈 {}
+<b>⌛️Something is wrong❕
+
+I couldn't find anything related to your request 🫧
+
+You can find the way to get the movie from the buttons below🌈
+
+Follow the buttons below✨</b>"""
+ 
 
 # ⚠️ Please don't change our credits 𝚃𝙷𝙰𝙽𝙺𝚂 𝚃𝙾 & 𝙳𝙴𝚅 👇🏻
 
@@ -292,9 +301,13 @@ Elsa
 {message.chat.title}</b>
 """
 
-    CUSTOM_FILE_CAPTION = """<a href=https://t.me/sk_movies_Group> <b>{file_name} </a>
+    CUSTOM_FILE_CAPTION = """<a href=https://t.me/sk_movies_Group><b>{file_name} 
 
-JOIN - https://t.me/sk_movies_Group </b>"""
+MOVIES GROUP LINK👇
+https://t.me/sk_movies_Group
+https://t.me/sk_movies_Group
+https://t.me/sk_movies_Group</b></a>
+"""
 
     RESTART_TXT = """
 <b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
