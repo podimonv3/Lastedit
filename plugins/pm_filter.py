@@ -146,7 +146,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"▫ {get_size(file.file_size)} ▸ {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -164,10 +164,6 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-        btn.insert(0,
-            [InlineKeyboardButton(f"⇩ {search} ⇩",callback_data="neosub")]
-        )                     
-
 
     if 0 < offset <= 10:
         off_set = 0
@@ -177,20 +173,20 @@ async def next_page(bot, query):
         off_set = offset - 10
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("𝖻𝖺𝖼𝗄", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"𝗉𝖺𝗀𝖾 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}",
+            [InlineKeyboardButton("⏪ Back", callback_data=f"next_{req}_{key}_{off_set}"),
+             InlineKeyboardButton(f"🔰 Page {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}🔰",
                                   callback_data="pages")]
         )
     elif off_set is None:
         btn.append(
-            [InlineKeyboardButton(f"{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
+            [InlineKeyboardButton(f"🔰 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)} 🔰", callback_data="pages"),
              InlineKeyboardButton("𝗇𝖾𝗑𝗍", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("𝖻𝖺𝖼𝗄", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(f"𝗉𝖺𝗀𝖾 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-                InlineKeyboardButton("𝗇𝖾𝗑𝗍", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("⏪ Back", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton(f"🔰 Page {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}🔰", callback_data="pages"),
+                InlineKeyboardButton("Next ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     try:
@@ -1232,7 +1228,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"▫ {get_size(file.file_size)} ▸ {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1251,21 +1247,18 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-        btn.insert(0,
-            [InlineKeyboardButton(f"⇩ {search} ⇩",callback_data="neosub")]
-        )        
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"𝗉𝖺𝗀𝖾 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
-             InlineKeyboardButton(text="𝗇𝖾𝗑𝗍", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"🔰 1/{math.ceil(int(total_results) / 10)} 🔰", callback_data="pages"),
+             InlineKeyboardButton(text="Next ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="Nᴏ Mᴏʀᴇ Pᴀɢᴇ", callback_data="pages")]
+            [InlineKeyboardButton(text="🔰 1/1 🔰", callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
@@ -1302,7 +1295,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"𝖧𝖾𝗒 👋🏻 {message.from_user.mention} 😍\n\n<b><i>🔖Title : {search}\n📫 Your Files is Ready Now</i></b>\n\n🗳️ 𝖴𝗉𝗅𝗈𝖺𝖽𝖾𝖽 𝖡𝗒 {message.chat.title}"
+        cap = f"{message.from_user.mention}🧞‍♀️<i>Found</i> <code>{str(total_results)}</code> <i>Results For Your Query:</i> <code>{search}</code>"
     if imdb and imdb.get('poster'):
         try:
             if message.chat.id == SUPPORT_CHAT_ID:
