@@ -686,7 +686,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         InlineKeyboardButton('🧞‍♀️ Developers', url='https://t.me/CrazyBotsz'),
         InlineKeyboardButton('Source Code 🧾', url ='https://github.com/CrazyBotsz/Adv-Auto-Filter-Bot-V2')
     ],[
-        InlineKeyboardButton('➕ Add Me ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+        InlineKeyboardButton('➕ Add Me To Your Group➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
     ],[
         InlineKeyboardButton('⚙ Help ⚙', callback_data="help")
     ]]
@@ -695,8 +695,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-        )
-        await query.answer('Piracy Is Crime')
+        )       
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('Gʟᴏʙᴀʟ Fɪʟᴛᴇʀs', callback_data='global_filters')                    
