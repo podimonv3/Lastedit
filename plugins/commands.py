@@ -50,9 +50,8 @@ async def start(client, message):
         InlineKeyboardButton('⚙ Help ⚙', callback_data="help")
     ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+        await message.reply_text(
+            text=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -69,20 +68,18 @@ async def start(client, message):
             return
         btn = [[ 
                 InlineKeyboardButton(
-                    "🎗 Request To Join Channel 🎗", url=invite_link)
+                    "🧞‍♀️ Request To Join Channel 🧞‍♀️", url=invite_link)
         ]]
         if message.command[1] != "subscribe":
             try:
                 kk, file_id = message.command[1].split("_", 1)
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
-                btn.append([InlineKeyboardButton("㋡ Wʜʏ I'ᴍ Jᴏɪɴɪɴɢ", callback_data="whyjoin")])
+                btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])             
             except (IndexError, ValueError):
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
-                btn.append([InlineKeyboardButton("㋡ Wʜʏ I'ᴍ Jᴏɪɴɪɴɢ", callback_data="whyjoin")])
+                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])     
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**--♦️ READ THIS INSTRUCTION ♦️--\n\n🗣 നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന 📢 Request To Join Channel 📢 എന്നത് ക്ലിക്ക് ചെയ്ത് Request to Join channel എന്നത് ക്ലിക്ക് ചെയ്ത് 🔄 Try Again കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്😍\n\n🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To Join Our Official Channel First By Clicking 📢 Request To Join Channel 📢 Button or the Link shown Below. After That, Click 🔄 Try Again 🔄 Button. I'll Send You That Movie File📂**",
+            text="**Please Join My Updates Channel to use this Bot!**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
