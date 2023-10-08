@@ -41,13 +41,13 @@ Follow the buttons below✨</b>"""
     
 <b>➥ 😎Creator</b> : <b>@AlbertEinstein_TG</b> 
 
-<b>➥ 👨‍💻Editor</b> : <b>@Mrk_YT</b>
+<b>➥ 👨‍💻Editor</b> : <b>@PowerOfTG</b>
 
 <b>➥ 🗣️Language</b> : <b>Python3</b>
 
 <b>➥ 📚Library</b> : <b><a href="https://docs.pyrogram.org">Pyrogram Asyncio 1.13.0 </a></b>
 
-<b>➥ 📖Source Code</b> : <b><a href="https://github.com/MRK-YT/Pro-Auto-Filter-Bot">💥Click Me</a></b>
+<b>➥ 📖Source Code</b> : <b><a href="https://github.com/Pro-Auto-Filter-Bot">💥Click Me</a></b>
 """
 
     SOURCE_TXT = """<b>NOTE:</b>
