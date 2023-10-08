@@ -317,13 +317,18 @@ Elsa
 {message.chat.title}</b>
 """
 
-    CUSTOM_FILE_CAPTION = """<a href=https://t.me/sk_movies_Group><b>{file_name} 
+    CUSTOM_FILE_CAPTION = """
+<b>📂 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : </b> <b>{file_name}</b>
 
-MOVIES GROUP LINK👇
-https://t.me/sk_movies_Group
-https://t.me/sk_movies_Group
-https://t.me/sk_movies_Group</b></a>
-"""
+<b>
+╭─────── • ◆ • ───────╮
+🔅Join :  <a href="https://t.me/UrvashiTheatersSub">Here</a>
+╰─────── • ◆ • ───────╯
+
+=========== • ✠ • ===========
+▫️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : @UrvashiTheatersSub
+▫️ 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 : @UrvashiTheatersSub
+=========== • ✠ • ===========</b>"""
 
     RESTART_TXT = """
 <b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
