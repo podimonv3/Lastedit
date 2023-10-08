@@ -992,7 +992,7 @@ async def advantage_spell_chok(client, msg):
 
         keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
 
-        k = await msg.reply_text(text=f"<b>{query.from_user.mention}\nI couldn't find anything related to your request 🧞‍♀️ \nYou can find the way to get the movie from the buttons below\n🧞‍♀️Click the below buttons for more Information</b>", reply_markup=keyboard)
+        k = await msg.reply_text(text=f"<b>🧞‍♀️I couldn't find anything related to your request \n🧞‍♀️You can find the way to get the movie from the buttons below\n🧞‍♀️Click the below buttons for more Information</b>", reply_markup=keyboard)
         await asyncio.sleep(120)
         await k.delete()
         await msg.delete()
@@ -1012,7 +1012,7 @@ async def advantage_spell_chok(client, msg):
         for k, movie_name in enumerate(movielist)
     ]
     btn.append([InlineKeyboardButton(text="⚠️ Request Here ⚠️", url="https://t.me/tomman_requests")])
-    k = await msg.reply("<b>🧞‍♀️ കൃഷ്ണൻകുട്ടി ഉദ്ദേശിച്ചത് താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n<b>🧞‍♀️ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n⚠️ ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ\n⚠️(സിനിമയുടെ റിലീസ് ഡേറ്റ് ഉള്ളതിൽ ക്ലിക്ക് ചെയ്യരുത്)</b>",
+    k = await msg.reply(f"<b>🧞‍♀️{message.from_user.mention} ഉദ്ദേശിച്ചത് താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n<b>⚠️സിനിമയുടെ റിലീസ് ഡേറ്റ് ഉള്ളതിൽ ക്ലിക്ക് ചെയ്യരുത്</b><b>🧞‍♀️ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n<b>⚠️ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ</b>",
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(60)
     await k.delete()
