@@ -212,7 +212,7 @@ async def advantage_spoll_choker(bot, query):
             ],[   
             InlineKeyboardButton('ᴍᴏᴠɪᴇ ɪɴꜰᴏ', url=f"https://google.com/search?q={search_query}+Release+date")
             ]]        
-            k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..?\n✯അതോ Year ബട്ടനിൽ ക്ലിക്ക് ചെയ്തോ 🙄\nഎന്തായാലും ഡാറ്റാബേസിൽ മൂവി കാണുന്നില്ല \nOr Click Request</b>', reply_markup=InlineKeyboardMarkup(btn))    
+            k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..?\n✯അതോ Year ബട്ടനിൽ ക്ലിക്ക് ചെയ്തോ 🙄\n✯എന്തായാലും ഡാറ്റാബേസിൽ മൂവി കാണുന്നില്ല \n⚠️ Or Click Request</b>', reply_markup=InlineKeyboardMarkup(btn))    
             await asyncio.sleep(60)
             await k.delete()
 
@@ -442,7 +442,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{files.file_name}"
         buttons = [[
-            InlineKeyboardButton('developers', url='https://t.me/UrvashiTheatersSub')
+            InlineKeyboardButton('Developers', url='https://t.me/UrvashiTheatersSub')
          ]]
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -488,7 +488,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         buttons = [[
-            InlineKeyboardButton('developers', url='https://t.me/UrvashiTheatersSub')
+            InlineKeyboardButton('Developers', url='https://t.me/UrvashiTheatersSub')
          ]]
         await query.answer()
         await client.send_cached_media(
@@ -570,7 +570,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
        keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
  
-       await query.message.edit_text(text=f"<b>Hey 👋 {query.from_user.mention} ⌛️Something is wrong❕\n\nI couldn't find anything related to your request 🫧\n\nYou can find the way to get the movie from the buttons below🍃\n\n||Click the below buttons for more Information 🏌️</b>||", reply_markup=keyboard)
+       await query.message.edit_text(text=f"<b>{query.from_user.mention}\nI couldn't find anything related to your request 🧞‍♀️ \nYou can find the way to get the movie from the buttons below\n🧞‍♀️Click the below buttons for more Information</b>", reply_markup=keyboard)
         
     elif query.data == "minfo":
        await query.answer(
@@ -992,7 +992,8 @@ async def advantage_spell_chok(client, msg):
 
         keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
 
-        k = await msg.reply_text(text=f"<b>{msg.from_user.mention} \n\n||Click the below buttons for more details</b>🧜||", reply_markup=keyboard)
+        k = await msg.reply_text(text=f"<b>{query.from_user.mention}\nI couldn't find anything related to your request 🧞‍♀️ \nYou can find the way to get the movie from the buttons below\n🧞‍♀️Click the below buttons for more Information</b>
+        ", reply_markup=keyboard)
         await asyncio.sleep(120)
         await k.delete()
         await msg.delete()
@@ -1012,7 +1013,7 @@ async def advantage_spell_chok(client, msg):
         for k, movie_name in enumerate(movielist)
     ]
     btn.append([InlineKeyboardButton(text="⚠️ Request Here ⚠️", url="https://t.me/tomman_requests")])
-    k = await msg.reply("<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ(സിനിമയുടെ റിലീസ് ഡേറ്റ് ഉള്ളതിൽ ക്ലിക്ക് ചെയ്യരുത്)</b>",
+    k = await msg.reply("<b>🧞‍♀️ കൃഷ്ണൻകുട്ടി ഉദ്ദേശിച്ചത് താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n<b>🧞‍♀️ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n⚠️ ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ\n⚠️(സിനിമയുടെ റിലീസ് ഡേറ്റ് ഉള്ളതിൽ ക്ലിക്ക് ചെയ്യരുത്)</b>",
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(60)
     await k.delete()
