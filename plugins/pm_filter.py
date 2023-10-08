@@ -507,7 +507,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -517,7 +517,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -527,7 +527,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]    
@@ -537,7 +537,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -547,14 +547,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("Search on Google", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
        await query.message.edit_text(text=f"Hey {query.from_user.mention}👋 <b><u>यदि आप मूवी प्राप्त करना चाहते हैं, तो नीचे दिए गए चरणों का पालन करें...</u><i>👇\n\n🔹सही वर्तनी के लिए पूछें। (केवल अंग्रेज़ी में)\n\n🔸फिल्में अंग्रेजी में टाइप करें और केवल पूछें।\n\n🔹अप्रकाशित फिल्मों के लिए न पूछें।\n\n🔸 [मूवी का नाम, वर्ष, भाषा] इस तरह पूछें।\n\n🔹फिल्मों का अनुरोध करते समय प्रतीकों से बचें। [+:;'*!-&.. आदि]\n\n🌎अपनी मूवी के विवरण के लिए नीचे दिए गए Google बटन का उपयोग करें</b></i>", reply_markup=InlineKeyboardMarkup(btn))
     
     elif query.data == "nlang":
-       btn_duction = InlineKeyboardButton("✯ 𝐌𝐮𝐬𝐭 𝐑𝐞𝐚𝐝 ✯", callback_data="minfo")
+       btn_duction = InlineKeyboardButton("📖𝐌𝐮𝐬𝐭 𝐑𝐞𝐚𝐝📖", callback_data="minfo")
 
        intro_row = [btn_duction]
        btn_eng = InlineKeyboardButton("ᴇɴɢ", callback_data="eng")
@@ -564,7 +564,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        btn_tel = InlineKeyboardButton("ᴛᴇʟ", callback_data="tel")
 
        language_row = [btn_eng, btn_mal, btn_hin, btn_tam, btn_tel]
-       btn_google = InlineKeyboardButton("𝚂𝙴𝙰𝚁𝙲𝙷 𝙾𝙽 𝙶𝙾𝙾𝙶𝙻𝙴", url="https://www.google.com/")
+       btn_google = InlineKeyboardButton("Request Here", url="https://t.me/tomman_requests")
 
        google_row = [btn_google]
 
@@ -884,7 +884,7 @@ async def auto_filter(client, msg, spoll=False):
                 hehe = await message.reply_text(text=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 try:
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(180)
                         await hehe.delete()
                         await message.delete()
                 except KeyError:
@@ -892,7 +892,7 @@ async def auto_filter(client, msg, spoll=False):
                     await save_group_settings(grpid, 'auto_delete', True)
                     settings = await get_settings(message.chat.id)
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(180)
                         await hehe.delete()
                         await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
@@ -904,7 +904,7 @@ async def auto_filter(client, msg, spoll=False):
                 hmm = await message.reply_text(text=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
                 try:
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(180)
                         await hmm.delete()
                         await message.delete()
                 except KeyError:
@@ -912,7 +912,7 @@ async def auto_filter(client, msg, spoll=False):
                     await save_group_settings(grpid, 'auto_delete', True)
                     settings = await get_settings(message.chat.id)
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(180)
                         await hmm.delete()
                         await message.delete()
         except Exception as e:
@@ -923,7 +923,7 @@ async def auto_filter(client, msg, spoll=False):
                 fek = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
                 try:
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(180)
                         await fek.delete()
                         await message.delete()
                 except KeyError:
@@ -931,7 +931,7 @@ async def auto_filter(client, msg, spoll=False):
                     await save_group_settings(grpid, 'auto_delete', True)
                     settings = await get_settings(message.chat.id)
                     if settings['auto_delete']:
-                        await asyncio.sleep(600)
+                        await asyncio.sleep(180)
                         await fek.delete()
                         await message.delete()
     else:
@@ -941,7 +941,7 @@ async def auto_filter(client, msg, spoll=False):
             fuk = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
             try:
                 if settings['auto_delete']:
-                    await asyncio.sleep(600)
+                    await asyncio.sleep(180)
                     await fuk.delete()
                     await message.delete()
             except KeyError:
@@ -949,7 +949,7 @@ async def auto_filter(client, msg, spoll=False):
                 await save_group_settings(grpid, 'auto_delete', True)
                 settings = await get_settings(message.chat.id)
                 if settings['auto_delete']:
-                    await asyncio.sleep(600)
+                    await asyncio.sleep(180)
                     await fuk.delete()
                     await message.delete()
     
@@ -981,7 +981,7 @@ async def advantage_spell_chok(client, msg):
     movielist = []
     if not movies:
         reqst_gle = mv_rqst.replace(" ", "+")
-        btn_duction = InlineKeyboardButton(" ✰ 𝐌𝐮𝐬𝐭 𝐑𝐞𝐚𝐝 ✰ ", callback_data="minfo")
+        btn_duction = InlineKeyboardButton("📖𝐌𝐮𝐬𝐭 𝐑𝐞𝐚𝐝📖", callback_data="minfo")
 
         intro_row = [btn_duction]
         btn_eng = InlineKeyboardButton("ᴇɴɢ", callback_data="eng")
@@ -991,13 +991,13 @@ async def advantage_spell_chok(client, msg):
         btn_tel = InlineKeyboardButton("ᴛᴇʟ", callback_data="tel")
 
         language_row = [btn_eng, btn_mal, btn_hin, btn_tam, btn_tel]
-        btn_google = InlineKeyboardButton("𝚂𝙴𝙰𝚁𝙲𝙷 𝙾𝙽 𝙶𝙾𝙾𝙶𝙻𝙴", url="https://www.google.com/")
+        btn_google = InlineKeyboardButton("Request Here", url="https://t.me/tomman_requests")
 
         google_row = [btn_google]
 
         keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
 
-        k = await msg.reply_text(text=f"<b>Hey 👋 {msg.from_user.mention} ⌛️Something is wrong❕\n\nI couldn't find anything related to your request 🫧\n\nYou can find the way to get the movie from the buttons below🍃\n\n||Click the below buttons for more details</b>🧜||", reply_markup=keyboard)
+        k = await msg.reply_text(text=f"<b>{msg.from_user.mention} \n\n||Click the below buttons for more details</b>🧜||", reply_markup=keyboard)
         await asyncio.sleep(120)
         await k.delete()
         await msg.delete()
@@ -1016,8 +1016,8 @@ async def advantage_spell_chok(client, msg):
         ]
         for k, movie_name in enumerate(movielist)
     ]
-    btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{reqstr1}#close_spellcheck')])
-    k = await msg.reply("<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ </b>",
+    btn.append([InlineKeyboardButton(text="⚠️ Request Here ⚠️", url="https://t.me/tomman_requests")])
+    k = await msg.reply("<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ(സിനിമയുടെ റിലീസ് ഡേറ്റ് ഉള്ളതിൽ ക്ലിക്ക് ചെയ്യരുത്)</b>",
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(60)
     await k.delete()
