@@ -992,8 +992,7 @@ async def advantage_spell_chok(client, msg):
 
         keyboard = InlineKeyboardMarkup(inline_keyboard=[intro_row, language_row, google_row])
 
-        k = await msg.reply_text(text=f"<b>{query.from_user.mention}\nI couldn't find anything related to your request 🧞‍♀️ \nYou can find the way to get the movie from the buttons below\n🧞‍♀️Click the below buttons for more Information</b>
-        ", reply_markup=keyboard)
+        k = await msg.reply_text(text=f"<b>{query.from_user.mention}\nI couldn't find anything related to your request 🧞‍♀️ \nYou can find the way to get the movie from the buttons below\n🧞‍♀️Click the below buttons for more Information</b>", reply_markup=keyboard)
         await asyncio.sleep(120)
         await k.delete()
         await msg.delete()
