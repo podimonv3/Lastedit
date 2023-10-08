@@ -68,7 +68,7 @@ async def start(client, message):
             return
         btn = [[ 
                 InlineKeyboardButton(
-                    "🧞‍♀️ Request To Join Channel 🧞‍♀️", url=invite_link)
+                    "🤖 Request To Join Channel 🤖", url=invite_link)
         ]]
         if message.command[1] != "subscribe":
             try:
@@ -231,32 +231,19 @@ async def start(client, message):
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:
         try:
-            f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except Exception as e:
             logger.exception(e)
-            f_caption = f_caption
-
+            f_caption=f_caption
     if f_caption is None:
-        f_caption = files.file_name
-
-    xd = await client.send_cached_media(
+        f_caption = f"{files.file_name}"
+    await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/new_movies_group_2021")]])
-    )
-    if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
-        f_caption += "\n⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
-        inline_keyboard = [
-                [InlineKeyboardButton("🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸", url="https://t.me/sk_movies_Group")]
-            ]
-        reply_markup = InlineKeyboardMarkup(inline_keyboard)
-        await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-        await asyncio.sleep(180)
-        await message.delete()
-        await xd.delete()
-
+        )
+                    
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
