@@ -107,17 +107,6 @@ async def give_filter(client,message):
         else:
             await auto_filter(client, message)
 
-@Client.on_message(filters.private & filters.text & filters.incoming)
-async def pm_text(bot, message):
-    content = message.text
-    user = message.from_user.first_name
-    user_id = message.from_user.id
-    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    await message.reply_text("<b>Just type the movie name in the group. I can only work in groups\n\nഇവിടെ ചോദിച്ചാൽ സിനിമ കിട്ടില്ല ഗ്രൂപ്പിൽ മാത്രം സിനിമ ചോദിക്കുക\n\n ask in Group Link👇\nhttps://t.me/new_movies_group_2021\n https://t.me/new_movies_group_2021</b>")
-    await bot.send_message(
-        chat_id=LOG_CHANNEL,
-        text=f"<b>#PM_MSG\n\nName : {user}\n\nID : {user_id}\n\nMessage : {content}</b>"
-    )
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
@@ -452,9 +441,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f_caption
         if f_caption is None:
             f_caption = f"{files.file_name}"
-        buttons = [[
-            InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url='https://t.me/new_movies_group_2021')
-         ]]
+
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
@@ -463,24 +450,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                xd = await client.send_cached_media(
+                await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    protect_content=True if ident == "checksubp" else False,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/new_movies_group_2021")]])
+                    protect_content=True if ident == "filep" else False 
                 )
-
-                if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
-                    f_caption += "\n⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
-                    inline_keyboard = [
-                         [InlineKeyboardButton("🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸", url="https://t.me/sk_movies_Group")]
-                        ]
-                    reply_markup = InlineKeyboardMarkup(inline_keyboard)
-                    await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-                    await asyncio.sleep(180)                   
-                    await xd.delete()
-                    
                 await query.answer('★彡Hey Bruh..彡★\n\n✯ മൂവിയുടെ ഫയൽ ‍‍ഞാന്‍ pm ഇൽ ഇട്ടിട്ടുണ്ട് പോയി നോക്ക്..🏃\n\n✯ 𝖨 𝗁𝖺𝗏𝖾 𝗉𝗎𝗍 𝗍𝗁𝖾 𝖿𝗂𝗅𝖾 𝗈𝖿 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝖺𝗌 𝖺 𝗉𝗆. 𝖦𝗈 𝖠𝗇𝖽 𝖲𝖾𝖾', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
@@ -510,62 +485,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f_caption = f_caption
         if f_caption is None:
             f_caption = f"{title}"
-        buttons = [[
-            InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url='https://t.me/new_movies_group_2021')
-         ]]
         await query.answer()
-        xd = await client.send_cached_media(
+        await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
-            protect_content=True if ident == "checksubp" else False,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔻𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔺', url="https://t.me/new_movies_group_2021")]])
+            protect_content=True if ident == 'checksubp' else False
         )
-
-        if title and any(keyword in title.lower() for keyword in ['predvd', 'predvdrip']):
-            f_caption += "\n⚠️<b><i>ഈ മൂവിയുടെ ഫയൽ എവിടെയെങ്കിലും ഫോർവേഡ് ചെയ്തു വെക്കുക എന്നിട്ട് ഡൗൺലോഡ് ചെയ്യുക\n\n3 മിനിറ്റിൽ ഇവിടുന്ന് ഡിലീറ്റ് ആവും🗑\n\n⚠️Forward the file of this Movie somewhere and download it\n\nWill be deleted from here in 3 minutes🗑</i></b>"
-            inline_keyboard = [
-                 [InlineKeyboardButton("🔸𝗠𝗢𝗩𝗜𝗘𝗦 𝗚𝗥𝗢𝗨𝗣🔸", url="https://t.me/sk_movies_Group")]
-                ]
-            reply_markup = InlineKeyboardMarkup(inline_keyboard)
-            await xd.edit_caption(caption=f_caption, reply_markup=reply_markup)
-            await asyncio.sleep(180)                   
-            await xd.delete()
-        
-    elif query.data == "predvd":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting PreDVDs... Please wait...</b>")
-        files, next_offset, total = await get_bad_files(
-                                                  'predvd',
-                                                  offset=0)
-        deleted = 0
-        for file in files:
-            file_ids = file.file_id
-            result = await Media.collection.delete_one({
-                '_id': file_ids,
-            })
-            if result.deleted_count:
-                logger.info('PreDVD File Found ! Successfully deleted from database.')
-            deleted+=1
-        deleted = str(deleted)
-        await k.edit_text(text=f"<b>Successfully deleted {deleted} PreDVD files.</b>")
-
-    elif query.data == "camrip":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting CamRips... Please wait...</b>")
-        files, next_offset, total = await get_bad_files(
-                                                  'camrip',
-                                                  offset=0)
-        deleted = 0
-        for file in files:
-            file_ids = file.file_id
-            result = await Media.collection.delete_one({
-                '_id': file_ids,
-            })
-            if result.deleted_count:
-                logger.info('CamRip File Found ! Successfully deleted from database.')
-            deleted+=1
-        deleted = str(deleted)
-        await k.edit_text(text=f"<b>Successfully deleted {deleted} CamRip files.</b>")
-
     elif query.data == "pages":
         await query.answer()
 
@@ -663,23 +589,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(f"✯ താഴെയുള്ള ബട്ടണിൽ വേണ്ട ക്വാളിറ്റി യിൽ ക്ലിക്ക് ചെയ്താൽ കിട്ടും⚡\n\n✯ 𝖢𝗅𝗂𝖼𝗄 𝗈𝗇 𝗍𝗁𝖾 𝗙𝗶𝗹𝗲 𝗡𝗮𝗺𝗲 𝖻𝖾𝗅𝗈𝗐 𝖻𝗎𝗍𝗍𝗈𝗇 🌈 𝖠𝗇𝖽 𝖲𝗍𝖺𝗋𝗍 𝖳𝗁𝖾 𝖡𝗈𝗍 🎯",show_alert=True)
 
     elif query.data == "whyjoin":
-        await query.answer(text="⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIғ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ᴄᴏᴘʏ ʀɪɢʜᴛ ɪꜱ ʟᴏꜱᴛ , ᴡʜᴇɴ ᴀ ɴᴇᴡ ᴄʜᴀɴɴᴇʟ ɪꜱ ꜱᴛᴀʀᴛᴇᴅ, ɪᴛ ᴡɪʟʟ ʙᴇ ɴᴏᴛɪғɪᴇᴅ ᴏɴ ᴛʜɪꜱ ᴄʜᴀɴɴᴇʟ 🙂", show_alert=True)
-
-    elif query.data == "surprise":
-        btn = [[
-            InlineKeyboardButton('sᴜʀᴘʀɪsᴇ', callback_data='start')
-        ]]
-        reply_markup=InlineKeyboardMarkup(btn)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text=script.SUR_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+        await query.answer(text="⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIғ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ᴄᴏᴘʏ ʀɪɢʜᴛ ɪꜱ ʟᴏꜱᴛ , ᴡʜᴇɴ ᴀ ɴᴇᴡ ᴄʜᴀɴɴᴇʟ ɪꜱ ꜱᴛᴀʀᴛᴇᴅ, ɪᴛ ᴡɪʟʟ ʙᴇ ɴᴏᴛɪғɪᴇᴅ ᴏɴ ᴛʜɪꜱ ᴄʜᴀɴɴᴇʟ 🙂", show_alert=True)  
 
     elif query.data == "start":
         buttons = [[
@@ -737,76 +647,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("✯ 𝖢𝗁𝖾𝖼𝗄 𝖮𝖳𝖳 𝖱𝖾𝗅𝖾𝖺𝗌𝖾 ᴏʀ 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖳𝗁𝖾 𝗌𝗉𝖾𝗅𝗅𝗂𝗇𝗀\n\n✯ 𝖣𝗈𝗇𝗍 𝖴𝗌𝖾 𝖲𝗒𝗆𝖻𝗈𝗅𝗌 𝖶𝗁𝗂𝗅𝖾 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 (,:'?!* 𝖾𝗍𝖼..)\n\n✯ [𝖬𝗈𝗏𝗂𝖾 𝖭𝖺𝗆𝖾 ,𝖸𝖾𝖺𝗋 ,𝖫𝖺𝗇𝗀𝗎𝖺𝗀𝖾] 𝖠𝗌𝗄 𝖳𝗁𝗂𝗌 𝖶𝖺𝗒",show_alert=True)        
 
     elif query.data == "seriess":
-        await query.answer("✯ 𝗦𝘁𝗲𝗽 1 :  𝖲𝖾𝗇𝖽 𝗍𝗁𝖾 𝗇𝖺𝗆𝖾 𝗈𝖿 𝗍𝗁𝖾 𝖬𝗈𝗏𝗂𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍 𝗍𝗈 𝗍𝗁𝗂𝗌 𝗀𝗋𝗈𝗎𝗉\n\n✯ 𝗦𝘁𝗲𝗽 2 : 𝖢𝗅𝗂𝖼𝗄 𝗈𝗇 𝗍𝗁𝖾 𝖡𝗎𝗍𝗍𝗈𝗇 𝗈𝖿 𝗍𝗁𝖾 𝖬𝗈𝗏𝗂𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍\n\n✯ 𝗦𝘁𝗲𝗽 3 : 𝖳𝗁𝖾𝗇 𝖢𝗅𝗂𝖼𝗄 𝗦𝘁𝗮𝗿𝘁 𝗈𝗇 𝗍𝗁𝖾 𝖡𝗈𝗍 𝖺𝗇𝖽 𝗒𝗈𝗎 𝗐𝗂𝗅𝗅 𝗀𝖾𝗍 𝗍𝗁𝖾 𝖬𝗈𝗏𝗂𝖾",show_alert=True)
-        
-    elif query.data == "aswin":
-        buttons = [[
-             InlineKeyboardButton('ᴀᴜᴅʙᴏᴏᴋ', callback_data='abook'),
-             InlineKeyboardButton('ᴄᴏᴠɪᴅ', callback_data='corona'),
-             InlineKeyboardButton('ɢᴀᴍᴇs', callback_data='fun')
-         ], [
-             InlineKeyboardButton('ᴘɪɴɢ', callback_data='pings'),
-             InlineKeyboardButton('ᴊsᴏɴᴇ', callback_data='json'),
-             InlineKeyboardButton('sᴛɪᴄᴋɪᴅ', callback_data='sticker')
-         ], [
-             InlineKeyboardButton('ᴡʜᴏɪs', callback_data='whois'),
-             InlineKeyboardButton('ᴜʀʟsʜᴏʀᴛ', callback_data='urlshort'),
-             InlineKeyboardButton('ɴᴇxᴛ', callback_data='aswins')  
-        ], [
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')         
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text="▣ ▢ ▢"
-        )
-        await query.message.edit_text(
-            text="▣ ▣ ▢"
-        )
-        await query.message.edit_text(
-            text="▣ ▣ ▣"
-        )       
-        await query.message.edit_text(                     
-            text=script.HELP_TXT.format(query.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "aswins":
-        buttons = [[
-             InlineKeyboardButton('ғᴏɴᴛ', callback_data='font'),
-             InlineKeyboardButton('ɢᴛʀᴀɴs', callback_data='gtrans'),
-             InlineKeyboardButton('ᴄᴀʀʙᴏɴ', callback_data='carb'),
-        ],  [
-             InlineKeyboardButton('ᴄᴏᴜɴᴛʀʏ', callback_data='country'),
-             InlineKeyboardButton('ᴅᴇᴘʟᴏʏ', callback_data='deploy'),
-             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start')
-        ], [
-             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text="▣ ▢ ▢"
-        )
-        await query.message.edit_text(
-            text="▣ ▣ ▢"
-        )
-        await query.message.edit_text(
-            text="▣ ▣ ▣"
-        )
-        await query.message.edit_text(                     
-            text=script.HELP_TXT.format(query.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+        await query.answer("✯ 𝗦𝘁𝗲𝗽 1 :  𝖲𝖾𝗇𝖽 𝗍𝗁𝖾 𝗇𝖺𝗆𝖾 𝗈𝖿 𝗍𝗁𝖾 𝖬𝗈𝗏𝗂𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍 𝗍𝗈 𝗍𝗁𝗂𝗌 𝗀𝗋𝗈𝗎𝗉\n\n✯ 𝗦𝘁𝗲𝗽 2 : 𝖢𝗅𝗂𝖼𝗄 𝗈𝗇 𝗍𝗁𝖾 𝖡𝗎𝗍𝗍𝗈𝗇 𝗈𝖿 𝗍𝗁𝖾 𝖬𝗈𝗏𝗂𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍\n\n✯ 𝗦𝘁𝗲𝗽 3 : 𝖳𝗁𝖾𝗇 𝖢𝗅𝗂𝖼𝗄 𝗦𝘁𝗮𝗿𝘁 𝗈𝗇 𝗍𝗁𝖾 𝖡𝗈𝗍 𝖺𝗇𝖽 𝗒𝗈𝗎 𝗐𝗂𝗅𝗅 𝗀𝖾𝗍 𝗍𝗁𝖾 𝖬𝗈𝗏𝗂𝖾",show_alert=True)        
     elif query.data == "about":
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help')
@@ -814,259 +655,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)        
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "source":
-        buttons = [[
-            InlineKeyboardButton('ʀᴇᴘᴏ', url='https://github.com/Devil-Botz/Elsa'),
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='about')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.SOURCE_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "manuelfilter":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('ʙᴜᴛᴛᴏɴs', callback_data='button')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.MANUELFILTER_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "button":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='manuelfilter')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.BUTTON_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "autofilter":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.AUTOFILTER_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "coct":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.CONNECTION_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "extra":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('ᴀᴅᴍɪɴ', callback_data='admin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.EXTRAMOD_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "admin":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='extra')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.ADMIN_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "song":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.SONG_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "video":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.VIDEO_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "tts":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.TTS_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "gtrans":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins'),
-            InlineKeyboardButton('𝙻𝙰𝙽𝙶 𝙲𝙾𝙳𝙴𝚂', url='https://cloud.google.com/translate/docs/languages')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.GTRANS_TXT,
-            disable_web_page_preview=True,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "country":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins'),
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.CON_TXT,
-            disable_web_page_preview=True,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "tele":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.TELE_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "corona":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.CORONA_TXT,
-            disable_web_page_preview=True,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "abook":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.ABOOK_TXT,
-            disable_web_page_preview=True,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "deploy":
-        buttons = [[
-           InlineKeyboardButton('ʀᴇᴘᴏ', url='https://github.com/Devil-Botz/Elsa'),
-           InlineKeyboardButton('ᴏᴡɴᴇʀ', url='https://t.me/Aswin_pm_Bot')
-        ], [
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.DEPLOY_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "sticker":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.STICKER_TXT,
-            disable_web_page_preview=True,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "pings":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.PINGS_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "json":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.JSON_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "urlshort":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.URLSHORT_TXT,
-            disable_web_page_preview=True,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "whois":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.WHOIS_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "font":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.FONT_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "carb":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswins')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.CARB_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "fun":
-        buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='aswin')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.FUN_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
