@@ -33,13 +33,8 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-        InlineKeyboardButton('🧞‍♀️ Developers', url='https://t.me/CrazyBotsz'),
-        InlineKeyboardButton('Source Code 🧾', url ='https://github.com/CrazyBotsz/Adv-Auto-Filter-Bot-V2')
-    ],[
-        InlineKeyboardButton('➕ Add Me To Your Group➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-    ],[
-        InlineKeyboardButton('⚙ Help ⚙', callback_data="help")
-    ]]
+            InlineKeyboardButton('🧞‍♀️ Add Me To Your Group 🧞‍♀️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
             text=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
@@ -78,13 +73,8 @@ async def start(client, message):
 
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-        InlineKeyboardButton('🧞‍♀️ Developers', url='https://t.me/CrazyBotsz'),
-        InlineKeyboardButton('Source Code 🧾', url ='https://github.com/CrazyBotsz/Adv-Auto-Filter-Bot-V2')
-    ],[
-        InlineKeyboardButton('➕ Add Me To Your Group➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-    ],[
-        InlineKeyboardButton('⚙ Help ⚙', callback_data="help")
-    ]]
+            InlineKeyboardButton('🧞‍♀️ Add Me To Your Group 🧞‍♀️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(         
             text=script.SUR_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
