@@ -36,7 +36,7 @@ BUTTONS = {}
 SPELL_CHECK = {}
 FILTER_MODE = {}
 
-@Client.on_message(filters.command('autofilter') & filters.user(ADMINS))
+@Client.on_message(filters.command('autofilterer') & filters.user(ADMINS))
 async def fil_mod(client, message): 
       mode_on = ["yes", "on", "true"]
       mode_of = ["no", "off", "false"]
@@ -112,7 +112,7 @@ async def give_filter(client,message):
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
-        return await query.answer(f"★彡Hey {query.from_user.first_name}彡★ ഇത് നിന്റെ അല്ല ....😎", show_alert=True)
+        return await query.answer(f"Nice Try", show_alert=True)
     try:
         offset = int(offset)
     except:
@@ -208,11 +208,11 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:                
             btn = [[                
-            InlineKeyboardButton('⌬ 𝗥𝗘𝗔𝗦𝗢𝗡𝗦 ⌬', callback_data='funda')
+            InlineKeyboardButton('Request', url='https://t.me/tomman_requests')
             ],[   
             InlineKeyboardButton('ᴍᴏᴠɪᴇ ɪɴꜰᴏ', url=f"https://google.com/search?q={search_query}+Release+date")
             ]]        
-            k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..? </b>\n\n✯ 𝗜𝗳 𝗶𝘁 𝗶𝘀 , 𝗪𝗲 𝗪𝗶𝗹𝗹 𝗨𝗽𝗹𝗼𝗮𝗱 𝗜𝘁⚡️\n\n<b>📯ɴʙ: Cʟɪᴄᴋ Bᴇʟᴏᴡ Rᴇᴀsᴏɴs Bᴜᴛᴛᴏɴ</b>', reply_markup=InlineKeyboardMarkup(btn))    
+            k=await query.message.edit('<b>✯ നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..?\n✯അതോ Year ബട്ടനിൽ ക്ലിക്ക് ചെയ്തോ 🙄\nഎന്തായാലും ഡാറ്റാബേസിൽ മൂവി കാണുന്നില്ല \nOr Click Request</b>', reply_markup=InlineKeyboardMarkup(btn))    
             await asyncio.sleep(60)
             await k.delete()
 
@@ -441,7 +441,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f_caption
         if f_caption is None:
             f_caption = f"{files.file_name}"
-
+        buttons = [[
+            InlineKeyboardButton('developers', url='https://t.me/UrvashiTheatersSub')
+         ]]
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
@@ -485,6 +487,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f_caption = f_caption
         if f_caption is None:
             f_caption = f"{title}"
+        buttons = [[
+            InlineKeyboardButton('developers', url='https://t.me/UrvashiTheatersSub')
+         ]]
         await query.answer()
         await client.send_cached_media(
             chat_id=query.from_user.id,
