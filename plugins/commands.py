@@ -129,7 +129,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     
-                    reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("developers", url="https://youtube.com/@Tech_VJ")] ] ),
+                    reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("Developers", url="https://t.me/UrvashiTheatersSub")] ] ),
                     
                     protect_content=msg.get('protect', False),
                     )
@@ -193,7 +193,7 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
-                reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("developers", url="https://youtube.com/@Tech_VJ")] ] ))
+                reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("Developers", url="https://t.me/UrvashiTheatersSub")] ] ))
                 
             filetype = msg.media
             file = getattr(msg, filetype)
@@ -227,7 +227,7 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         
-        reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("developers", url="https://youtube.com/@Tech_VJ")] ] ),
+        reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("Developers", url="https://t.me/UrvashiTheatersSub")] ] ),
         
         protect_content=True if pre == 'filep' else False,
         )
