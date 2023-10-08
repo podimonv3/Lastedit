@@ -319,13 +319,14 @@ Elsa
 
     CUSTOM_FILE_CAPTION = """
 <b>📂 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : </b> <code>{file_name}</code>
-<b>╭─────── •  ◆  •  ───────╮
-   🔅Join :  <a href="https://t.me/UrvashiTheatersSub">✨️ഉർവശി തീയറ്റേഴ്‌സ്✨</a>
-   ╰─────── •  ◆  •  ───────╯
-   =========== • ✠ • ===========
-   ▫️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : @UrvashiTheatersSub
-   ▫️ 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 : @UrvashiTheatersSub
-   =========== • ✠ • ===========</b>"""
+<b>
+╭─────── •  ◆  •  ───────╮
+🔅Join :  <a href="https://t.me/UrvashiTheatersSub">✨️ഉർവശി തീയറ്റേഴ്‌സ്✨</a>
+╰─────── •  ◆  •  ───────╯
+ =========== • ✠ • ===========
+  ▫️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : @UrvashiTheatersSub
+  ▫️ 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 : @UrvashiTheatersSub
+ =========== • ✠ • ===========</b>"""
 
     RESTART_TXT = """
 <b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !
