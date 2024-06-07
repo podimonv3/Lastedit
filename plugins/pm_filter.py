@@ -442,7 +442,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{files.file_name}"
         buttons = [[
-            InlineKeyboardButton('Developers', url='https://t.me/UrvashiTheatersSub')
+            InlineKeyboardButton('Developers', url='https://t.me/+JQeou0PAx_Y0ZGFl')
          ]]
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -488,7 +488,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         buttons = [[
-            InlineKeyboardButton('Developers', url='https://t.me/UrvashiTheatersSub')
+            InlineKeyboardButton('Developers', url='https://t.me/+JQeou0PAx_Y0ZGFl')
          ]]
         await query.answer()
         await client.send_cached_media(
@@ -597,9 +597,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(text="⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIғ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ᴄᴏᴘʏ ʀɪɢʜᴛ ɪꜱ ʟᴏꜱᴛ , ᴡʜᴇɴ ᴀ ɴᴇᴡ ᴄʜᴀɴɴᴇʟ ɪꜱ ꜱᴛᴀʀᴛᴇᴅ, ɪᴛ ᴡɪʟʟ ʙᴇ ɴᴏᴛɪғɪᴇᴅ ᴏɴ ᴛʜɪꜱ ᴄʜᴀɴɴᴇʟ 🙂", show_alert=True)  
 
     elif query.data == "start":
-        buttons = [[
-            InlineKeyboardButton('🧞‍♀️ Add Me To Your Group 🧞‍♀️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-         ]]
+        buttons = [[                   
+                    InlineKeyboardButton("• ɢʀᴏᴜᴘ 𝟷 •", url="https://t.me/+JQeou0PAx_Y0ZGFl"),
+                    InlineKeyboardButton("• ​ɢʀᴏᴜᴘ 𝟸 •", url="https://t.me/+JQeou0PAx_Y0ZGFl")
+                  ],[
+                    InlineKeyboardButton('• ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ ғᴏʀ ʜᴇʟᴘ•', url='t.me/Adarfilter_bot?start=help')
+                  ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
