@@ -52,8 +52,8 @@ Follow the buttons below✨</b>"""
 🔅Join :  ✨️ഉർവശി തീയറ്റേഴ്‌സ്✨
 ╰─────── •  ◆  •  ───────╯
  =========== • ✠ • ===========
-  ▫️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : https://t.me/+JQeou0PAx_Y0ZGFl
-  ▫️ 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 : https://t.me/+JQeou0PAx_Y0ZGFl
+  ▫️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : https://t.me/+vg2zU33d_1c2YmQ1
+  ▫️ 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 : https://t.me/+vg2zU33d_1c2YmQ1
  =========== • ✠ • =========== """
 
     MANUELFILTER_TXT = """<b>- 𝙵𝙸𝙻𝚃𝙴𝚁 𝙸𝚂 𝚃𝙷𝙴 𝙵𝙴𝙰𝚃𝚄𝚁𝙴 𝚆𝙴𝚁𝙴 𝚄𝚂𝙴𝚁𝚂 𝙲𝙰𝙽 𝚂𝙴𝚃 𝙰𝚄𝚃𝙾𝙼𝙰𝚃𝙴𝙳 𝚁𝙴𝙿𝙻𝙸𝙴𝚂 𝙵𝙾𝚁 𝙰 𝙿𝙰𝚁𝚃𝙸𝙲𝚄𝙻𝙰𝚁 𝙺𝙴𝚈𝚆𝙾𝚁𝙳 𝙰𝙽𝙳 𝙴𝙻𝚂𝙰 𝚆𝙸𝙻𝙻 𝚁𝙴𝚂𝙿𝙾𝙽𝙳 𝚆𝙷𝙴𝙽𝙴𝚅𝙴𝚁 𝙰 𝙺𝙴𝚈𝚆𝙾𝚁𝙳 𝙸𝚂 𝙵𝙾𝚄𝙽𝙳 𝚃𝙷𝙴 𝙼𝙴𝚂𝚂𝙰𝙶𝙴</b>
@@ -323,11 +323,11 @@ Elsa
 <b>📂 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : </b> <code>{file_name}</code>
 <b>
 ╭─────── •  ◆  •  ───────╮
-🔅Join :  <a href="https://t.me/+JQeou0PAx_Y0ZGFl">✨️ഉർവശി തീയറ്റേഴ്‌സ്✨</a>
+🔅Join :  <a href="https://t.me/+vg2zU33d_1c2YmQ1">✨️ഉർവശി തീയറ്റേഴ്‌സ്✨</a>
 ╰─────── •  ◆  •  ───────╯
  =========== • ✠ • ===========
-  ▫️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : https://t.me/+JQeou0PAx_Y0ZGFl
-  ▫️ 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 : https://t.me/+JQeou0PAx_Y0ZGFl
+  ▫️ 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : https://t.me/+vg2zU33d_1c2YmQ1
+  ▫️ 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 : https://t.me/+vg2zU33d_1c2YmQ1
  =========== • ✠ • ===========</b>"""
 
     RESTART_TXT = """
