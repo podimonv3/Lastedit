@@ -442,7 +442,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{files.file_name}"
         buttons = [[
-            InlineKeyboardButton('Developers', url='https://t.me/+JQeou0PAx_Y0ZGFl')
+            InlineKeyboardButton('🍂 ᴜᴘᴅᴀᴛᴇꜱ 🍂', url='https://t.me/+vg2zU33d_1c2YmQ1')
          ]]
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -488,7 +488,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         buttons = [[
-            InlineKeyboardButton('Developers', url='https://t.me/+JQeou0PAx_Y0ZGFl')
+            InlineKeyboardButton('🍂 ᴜᴘᴅᴀᴛᴇꜱ 🍂', url='https://t.me/+vg2zU33d_1c2YmQ1')
          ]]
         await query.answer()
         await client.send_cached_media(
@@ -501,13 +501,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
 
     elif query.data == "reqinfo":
-        await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n❣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄɪɴᴇᴍᴀʟᴀ.ᴄᴏᴍ", show_alert=True)
+        await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 10 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n❣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ഉർവശി തീയറ്റേഴ്‌സ്", show_alert=True)
 
     elif query.data == "eng":
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🌍𝙶𝙾𝙾𝙶𝙻𝙴🌍", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -517,7 +517,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🌍𝙶𝙾𝙾𝙶𝙻𝙴🌍", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -527,7 +527,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🌍𝙶𝙾𝙾𝙶𝙻𝙴🌍", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]    
@@ -537,7 +537,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🌍𝙶𝙾𝙾𝙶𝙻𝙴🌍", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -547,7 +547,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        xd = query.message.reply_to_message.text.replace(" ", "+")
        btn = [
            [
-               InlineKeyboardButton("🔎 𝙶𝙾𝙾𝙶𝙻𝙴", url=f"https://www.google.com/search?q={xd}"),
+               InlineKeyboardButton("🌍𝙶𝙾𝙾𝙶𝙻𝙴🌍", url=f"https://www.google.com/search?q={xd}"),
                InlineKeyboardButton("back", callback_data="nlang")
            ]
        ]
@@ -564,7 +564,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        btn_tel = InlineKeyboardButton("ᴛᴇʟ", callback_data="tel")
 
        language_row = [btn_eng, btn_mal, btn_hin, btn_tam, btn_tel]
-       btn_google = InlineKeyboardButton("Request Here", url="https://t.me/tomman_requests")
+       btn_google = InlineKeyboardButton("⚠️ Request ⚠️", url="https://t.me/tomman_requests")
 
        google_row = [btn_google]
 
@@ -806,7 +806,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"⊳[{get_size(file.file_size)}]{file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -989,7 +989,7 @@ async def advantage_spell_chok(client, msg):
         btn_tel = InlineKeyboardButton("ᴛᴇʟ", callback_data="tel")
 
         language_row = [btn_eng, btn_mal, btn_hin, btn_tam, btn_tel]
-        btn_google = InlineKeyboardButton("Request Here", url="https://t.me/tomman_requests")
+        btn_google = InlineKeyboardButton("⚠️ Request ⚠️", url="https://t.me/tomman_requests")
 
         google_row = [btn_google]
 
@@ -1015,7 +1015,7 @@ async def advantage_spell_chok(client, msg):
         for k, movie_name in enumerate(movielist)
     ]
     btn.append([InlineKeyboardButton(text="⚠️ Request Here ⚠️", url="https://t.me/tomman_requests")])
-    k = await msg.reply(f"<b>🧞‍♀️കൃഷ്ണൻകുട്ടി ഉദ്ദേശിച്ചത് താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക</b>\n<b>⚠️സിനിമയുടെ റിലീസ് ഡേറ്റ് ഉള്ളതിൽ ക്ലിക്ക് ചെയ്യരുത്</b>\n<b>🧞‍♀️ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?</b>\n<b>⚠️ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ</b>",
+    k = await msg.reply(f"<b>🧞‍♀️താങ്കൾ ഉദ്ദേശിച്ച സിനിമ /സീരീസ് താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ഡേറ്റ് ഇല്ലാത്തതിൽ ക്ലിക്ക്ചെ യ്യുക</b>\n<b>🧞‍♀️ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?</b>\n<b>⚠️ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ</b>",
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(60)
     await k.delete()
