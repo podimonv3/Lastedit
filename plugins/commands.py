@@ -33,10 +33,10 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[                   
-                    InlineKeyboardButton("• ɢʀᴏᴜᴘ 𝟷 •", url="https://t.me/+JQeou0PAx_Y0ZGFl"),
-                    InlineKeyboardButton("• ​ɢʀᴏᴜᴘ 𝟸 •", url="https://t.me/+JQeou0PAx_Y0ZGFl")
+                    InlineKeyboardButton("• ɢʀᴏᴜᴘ •", url="https://t.me/+vg2zU33d_1c2YmQ1"),
+                    InlineKeyboardButton("• ᴄʜᴀɴɴᴇʟ •", url="https://t.me/UrvashiTheaters_links")
                   ],[
-                    InlineKeyboardButton('• ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ ғᴏʀ ʜᴇʟᴘ•', url='t.me/Adarfilter_bot?start=help')
+                    InlineKeyboardButton('• ɪꜱꜱᴜᴇꜱ ᴏꜰ ʙᴏᴛ 👉ᴄᴏɴᴛᴀᴄᴛ•', url='https://t.me/PowerOfTG')
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -57,18 +57,18 @@ async def start(client, message):
             return
         btn = [[ 
                 InlineKeyboardButton(
-                    "🤖 Request To Join Channel 🤖", url=invite_link)
+                    "💥 ʀᴇQᴜᴇꜱᴛ ᴛᴏ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 💥", url=invite_link)
         ]]
         if message.command[1] != "subscribe":
             try:
                 kk, file_id = message.command[1].split("_", 1)
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])             
+                btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", callback_data=f"{pre}#{file_id}")])             
             except (IndexError, ValueError):
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])     
+                btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])     
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="**--♦️ READ THIS INSTRUCTION ♦️--**\n\n🗣 നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന **--Request To Join Channel**-- എന്നത് ക്ലിക്ക് ചെയ്ത് **--Try Again**--കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്😍\n\n🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To Join Our Official Channel First By Clicking **--Request To Join Channel**-- Button. After That, Click **--Try Again**-- Button. I'll Send You That Movie File📂\n\n⚠️If Any Error Contact @PowerOfTG**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
@@ -76,10 +76,10 @@ async def start(client, message):
 
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[                   
-                    InlineKeyboardButton("• ɢʀᴏᴜᴘ 𝟷 •", url="https://t.me/+JQeou0PAx_Y0ZGFl"),
-                    InlineKeyboardButton("• ​ɢʀᴏᴜᴘ 𝟸 •", url="https://t.me/+JQeou0PAx_Y0ZGFl")
+                    InlineKeyboardButton("• ɢʀᴏᴜᴘ •", url="https://t.me/+vg2zU33d_1c2YmQ1"),
+                    InlineKeyboardButton("• ᴄʜᴀɴɴᴇʟ •", url="https://t.me/UrvashiTheaters_links")
                   ],[
-                    InlineKeyboardButton('• ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ ғᴏʀ ʜᴇʟᴘ•', url='t.me/Adarfilter_bot?start=help')
+                    InlineKeyboardButton('• ɪꜱꜱᴜᴇꜱ ᴏꜰ ʙᴏᴛ 👉ᴄᴏɴᴛᴀᴄᴛ•', url='https://t.me/PowerOfTG')
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_text(         
@@ -135,7 +135,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     
-                    reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("Developers", url="https://t.me/UrvashiTheatersSub")] ] ),
+                    reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("🍂 ᴜᴘᴀᴅᴀᴛᴇꜱ 🍂", url="https://t.me/+vg2zU33d_1c2YmQ1")] ] ),
                     
                     protect_content=msg.get('protect', False),
                     )
@@ -199,7 +199,7 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
-                reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("Developers", url="https://t.me/UrvashiTheatersSub")] ] ))
+                reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("🍂 ᴜᴘᴀᴅᴀᴛᴇꜱ 🍂", url="https://t.me/+vg2zU33d_1c2YmQ1")] ] ))
                 
             filetype = msg.media
             file = getattr(msg, filetype)
@@ -233,7 +233,7 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         
-        reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("Developers", url="https://t.me/UrvashiTheatersSub")] ] ),
+        reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("🍂 ᴜᴘᴀᴅᴀᴛᴇꜱ 🍂", url="https://t.me/+vg2zU33d_1c2YmQ1")] ] ),
         
         protect_content=True if pre == 'filep' else False,
         )
