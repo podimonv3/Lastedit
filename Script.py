@@ -318,6 +318,7 @@ Elsa
 
     CUSTOM_FILE_CAPTION = """
 <b>📂 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : </b> <code>{file_name}</code>
+<b>⚙ 𝐅𝐢𝐥𝐞 𝐒𝐢𝐳𝐞 : </b> <code>{file_size}</code>
 <b>
 ╭─────── •  ◆  •  ───────╮
 🔅Join :  <a href="https://t.me/+vg2zU33d_1c2YmQ1">✨️ഉർവശി തീയറ്റേഴ്‌സ്✨</a>
