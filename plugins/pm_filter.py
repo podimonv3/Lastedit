@@ -118,7 +118,7 @@ async def pm_text(bot, message):
     await message.reply_text("<b>Yᴏᴜʀ ᴍᴇssᴀɢᴇ/ʀᴇQᴜᴇꜱᴛ ʜᴀs ʙᴇᴇɴ sᴇɴᴛ ᴛᴏ ᴍʏ ᴛᴇᴀᴍ ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ꜰᴏʀ ʀᴇᴘʟᴀʏ!</b>")
     await bot.send_message(
         chat_id=PM_CHANNEL,
-        text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {content}</b>"
+        text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}</b>\n\nID :<code>{user_id}</code>\n\nMᴇssᴀɢᴇ : <code>{content}</code>"
     )
 
 @Client.on_callback_query(filters.regex(r"^next"))
