@@ -11,7 +11,7 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import ADMINS, AUTH_CHANNEL, FILE_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, NOR_IMG, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, SPELL_IMG, MSG_ALRT, FILE_FORWARD, MAIN_CHANNEL, LOG_CHANNEL, PICS, SUPPORT_CHAT_ID
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, SPELL_IMG, MSG_ALRT, FILE_FORWARD, MAIN_CHANNEL, LOG_CHANNEL, PM_CHANNEL, NORES_CHANNEL, PICS, SUPPORT_CHAT_ID
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -115,9 +115,9 @@ async def pm_text(bot, message):
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     if user_id in ADMINS: return # ignore admins
-    await message.reply_text("<b>Yᴏᴜʀ ᴍᴇssᴀɢᴇ ʜᴀs ʙᴇᴇɴ sᴇɴᴛ ᴛᴏ ᴍʏ ᴍᴏᴅᴇʀᴀᴛᴏʀs !</b>")
+    await message.reply_text("<b>Yᴏᴜʀ ᴍᴇssᴀɢᴇ/ʀᴇQᴜᴇꜱᴛ ʜᴀs ʙᴇᴇɴ sᴇɴᴛ ᴛᴏ ᴍʏ ᴛᴇᴀᴍ ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ꜰᴏʀ ʀᴇᴘʟᴀʏ!</b>")
     await bot.send_message(
-        chat_id=LOG_CHANNEL,
+        chat_id=PM_CHANNEL,
         text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {content}</b>"
     )
 
@@ -221,9 +221,9 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:                
             btn = [[                
-            InlineKeyboardButton('♻️ Request ♻️', url='https://t.me/tomman_requests')
+            InlineKeyboardButton('♻️ Request ♻️', url='http://t.me/Adarfilter_bot')
             ],[   
-            InlineKeyboardButton('🎞️ ᴍᴏᴠɪᴇ ɪɴꜰᴏ 🌍', url=f"https://google.com/search?q={search_query}+Release+date")
+            InlineKeyboardButton('🌍𝙶𝙾𝙾𝙶𝙻𝙴🌍', url=f"https://google.com/search?q={search_query}+Release+date")
             ]]        
             k=await query.message.edit('<b>✯നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടുണ്ടോ..?\n✯Its Movie Released Or Not Check Imdb\n✯Movie Year ബട്ടൻ ഉള്ളതിൽ ക്ലിക്ക് ചെയ്യരുത്\n✯Dont Click Year Button⚠️\n🍂Or Click Request</b>', reply_markup=InlineKeyboardMarkup(btn))    
             await asyncio.sleep(60)
@@ -577,7 +577,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
        btn_tel = InlineKeyboardButton("ᴛᴇʟ", callback_data="tel")
 
        language_row = [btn_eng, btn_mal, btn_hin, btn_tam, btn_tel]
-       btn_google = InlineKeyboardButton("⚠️ Request ⚠️", url="https://t.me/tomman_requests")
+       btn_google = InlineKeyboardButton("⚠️ Request ⚠️", url="http://t.me/Adarfilter_bot")
 
        google_row = [btn_google]
 
@@ -806,7 +806,7 @@ async def auto_filter(client, msg, spoll=False):
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
                 else:
-                    await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
+                    await client.send_message(chat_id=NORES_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
                     return
         else:
             return
@@ -983,7 +983,7 @@ async def advantage_spell_chok(client, msg):
         movies = await get_poster(mv_rqst, bulk=True)
     except Exception as e:
         logger.exception(e)
-        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+        await client.send_message(chat_id=NORES_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await msg.reply(script.I_CUDNT.format(reqstr.mention))
         await asyncio.sleep(20)
         await k.delete()
@@ -1002,7 +1002,7 @@ async def advantage_spell_chok(client, msg):
         btn_tel = InlineKeyboardButton("ᴛᴇʟ", callback_data="tel")
 
         language_row = [btn_eng, btn_mal, btn_hin, btn_tam, btn_tel]
-        btn_google = InlineKeyboardButton("⚠️ Request ⚠️", url="https://t.me/tomman_requests")
+        btn_google = InlineKeyboardButton("⚠️ Request ⚠️", url="http://t.me/Adarfilter_bot")
 
         google_row = [btn_google]
 
@@ -1027,7 +1027,7 @@ async def advantage_spell_chok(client, msg):
         ]
         for k, movie_name in enumerate(movielist)
     ]
-    btn.append([InlineKeyboardButton(text="⚠️ Request Here ⚠️", url="https://t.me/tomman_requests")])
+    btn.append([InlineKeyboardButton(text="⚠️ Request Here ⚠️", url="http://t.me/Adarfilter_bot")])
     k = await msg.reply(f"<b>🧞‍♀️താങ്കൾ ഉദ്ദേശിച്ച സിനിമ /സീരീസ് താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ഡേറ്റ് ഇല്ലാത്തതിൽ ക്ലിക്ക്ചെ യ്യുക</b>\n<b>🧞‍♀️ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?</b>\n<b>⚠️ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ</b>",
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(60)
