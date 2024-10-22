@@ -2,7 +2,6 @@ pyrogram==2.0.62
 httpx==0.23.3
 tgcrypto
 pymongo[srv]==3.12.3
-pymongo==4.0.1
 python-dotenv==0.20.0
 motor==2.5.1
 marshmallow==3.14.1
