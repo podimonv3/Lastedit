@@ -1,5 +1,4 @@
 pyrogram==2.0.62
-httpx==0.23.3
 tgcrypto
 pymongo[srv]==3.12.3
 python-dotenv==0.20.0
@@ -17,14 +16,12 @@ ffmpeg-python
 ffmpeg
 youtube_search
 youtube_search_python
-youtube-search-python==1.4.6
 yt-dlp
 youtube-dl
 youtube_search
 requests
 aiohttp==3.7.4
 gTTS
-googletrans==3.1.0a0
 telegraph
 PyPDF2
 ujson
